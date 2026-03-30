@@ -1,0 +1,48 @@
+<div class="card" id="addControlCard">
+    <h3>تسجيل شكوى سيطرة</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px;">
+        <select id="cCityAdd" onchange="updateBranches('cCityAdd','cBranchAdd')"></select>
+        <select id="cBranchAdd"></select>
+    </div>
+    <div style="background:rgba(25,118,210,0.07);border:1px solid rgba(25,118,210,0.2);border-radius:14px;padding:16px;margin-bottom:15px;">
+        <div style="font-size:13px;color:#64b5f6;font-weight:700;margin-bottom:10px;">👤 معلومات الزبون (اختياري)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <input type="text" id="cCustomerName" placeholder="اسم الزبون">
+            <input type="text" id="cCustomerPhone" placeholder="رقم الهاتف">
+            <input type="text" id="cCustomerOrder" placeholder="رقم الطلبية / تفاصيل أخرى">
+        </div>
+    </div>
+    <div style="margin-bottom:15px;">
+        <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">🔗 ربط بشكوى في الاستفسارات (اختياري)</label>
+        <select id="cLinkedInquiry" style="width:100%;" onchange="onLinkedInquiryChange()">
+            <option value="">— بدون ربط —</option>
+        </select>
+        <div id="linkedInqPreview" style="display:none;margin-top:8px;padding:10px 14px;background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:10px;font-size:12px;color:#ce93d8;">
+            🔗 <span id="linkedInqPreviewText"></span>
+        </div>
+    </div>
+    <label style="font-size:13px;color:var(--text-dim);">المرفقات (صور أو ملفات):</label>
+    <input type="file" id="cFile" style="margin-bottom:15px;background:none;border:none;">
+    <textarea id="cNotes" placeholder="نص الملاحظة الواردة من السيطرة..." rows="3"></textarea>
+    <button class="btn btn-main" style="margin-top:15px" onclick="addControl()">إرسال الشكوى</button>
+</div>
+<div class="search-bar search-bar-c">
+    <div style="grid-column:1/-1;" class="search-section-title">🔍 خيارات البحث</div>
+    <div><label>المحافظة</label><select id="searchCityC" onchange="updateBranches('searchCityC','searchBranchC');filterTable();"></select></div>
+    <div><label>الفرع</label><select id="searchBranchC" onchange="filterTable()"><option value="">الكل</option></select></div>
+    <div><label>التاريخ</label><div class="date-picker-wrap" onclick="openDatePicker('searchDateC')"><span class="date-display" id="searchDateC-display">📅 اختر التاريخ</span><input type="hidden" id="searchDateC"></div></div>
+    <div><label>نص الشكوى</label><input type="text" id="searchTextC" placeholder="بحث..." oninput="filterTable()"></div>
+    <button class="btn" style="background:var(--bg-input);color:var(--text-dim);align-self:end;" onclick="resetSearch('C')">تفريغ</button>
+</div>
+<div class="card">
+    <table id="tableC">
+        <thead><tr>
+            <th style="width:14%">الفرع</th>
+            <th>الشكوى والمرفق</th>
+            <th style="width:12%">الموظف</th>
+            <th style="width:16%">وقت الإرسال</th>
+            <th style="width:16%">إجراء المدير</th>
+        </tr></thead>
+        <tbody></tbody>
+    </table>
+</div>

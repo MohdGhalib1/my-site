@@ -1,0 +1,37 @@
+<div class="card">
+    <h3>👤 إضافة موظف جديد</h3>
+    <p style="color:var(--text-dim);font-size:13px;margin-top:-10px;">الرقم الوظيفي يُستخدم كباسوورد دخول للنظام</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-bottom:15px;">
+        <div>
+            <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">الاسم الكامل</label>
+            <input type="text" id="eName" placeholder="اسم الموظف">
+        </div>
+        <div>
+            <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">المسمى الوظيفي</label>
+            <select id="eTitle">
+                <option value="">اختر المسمى الوظيفي</option>
+                <option value="مدير الكول سنتر">مدير الكول سنتر</option>
+                <option value="موظف كول سنتر">موظف كول سنتر</option>
+                <option value="قسم السيطرة">قسم السيطرة</option>
+            </select>
+        </div>
+        <div>
+            <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">الرقم الوظيفي (باسوورد الدخول)</label>
+            <input type="text" id="eId" placeholder="مثال: 1234">
+        </div>
+    </div>
+    <button class="btn btn-main" onclick="addEmployee()">➕ إضافة الموظف</button>
+</div>
+<div class="card">
+    <h3 style="margin-bottom:20px;">قائمة الموظفين المسجلين</h3>
+    <table id="tableE">
+        <thead><tr>
+            <th style="width:5%">#</th>
+            <th style="width:30%">الاسم الكامل</th>
+            <th style="width:30%">المسمى الوظيفي</th>
+            <th style="width:20%">الرقم الوظيفي</th>
+            <th style="width:15%">حذف</th>
+        </tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
