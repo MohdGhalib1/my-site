@@ -1,0 +1,47 @@
+<div class="card" id="addInquiryCard">
+    <h3>تسجيل استفسار عميل</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-bottom:15px;">
+        <input type="text" id="iPhone" placeholder="رقم الهاتف">
+        <select id="iCityAdd" onchange="updateBranches('iCityAdd','iBranchAdd')"></select>
+        <select id="iBranchAdd"></select>
+    </div>
+    <div style="margin-bottom:15px;">
+        <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">نوع الاستفسار</label>
+        <select id="iType" onchange="toggleInquiryNotes()">
+            <option value="">اختر نوع الاستفسار</option>
+            <option value="شكوى">شكوى</option>
+            <option value="استفسار عن توفر منتج">استفسار عن توفر منتج</option>
+            <option value="استفسار عن سعر منتج">استفسار عن سعر منتج</option>
+            <option value="توظيف">توظيف</option>
+            <option value="طلبية">طلبية</option>
+            <option value="تحويل لمول الشعب">تحويل لمول الشعب</option>
+            <option value="أخرى">أخرى</option>
+        </select>
+    </div>
+    <div id="iNotesBox" style="display:none;margin-bottom:15px;">
+        <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">التفاصيل</label>
+        <textarea id="iNotes" placeholder="اكتب التفاصيل هنا..." rows="3"></textarea>
+    </div>
+    <button class="btn btn-main" style="margin-top:5px" onclick="addInquiry()">حفظ الاستفسار</button>
+</div>
+<div class="search-bar search-bar-i">
+    <div style="grid-column:1/-1;" class="search-section-title">🔍 خيارات البحث</div>
+    <div><label>المحافظة</label><select id="searchCityI" onchange="updateBranches('searchCityI','searchBranchI');filterTable();"></select></div>
+    <div><label>الفرع</label><select id="searchBranchI" onchange="filterTable()"><option value="">الكل</option></select></div>
+    <div><label>التاريخ</label><div class="date-picker-wrap" onclick="openDatePicker('searchDateI')"><span class="date-display" id="searchDateI-display">📅 اختر التاريخ</span><input type="hidden" id="searchDateI"></div></div>
+    <div><label>موظف الاستفسار</label><select id="searchAddedByI" onchange="filterTable()"><option value="">الكل</option></select></div>
+    <button class="btn" style="background:var(--bg-input);color:var(--text-dim);align-self:end;" onclick="resetSearch('I')">تفريغ</button>
+</div>
+<div class="card">
+    <table id="tableI">
+        <thead><tr>
+            <th style="width:6%">#</th>
+            <th style="width:14%">الفرع</th>
+            <th style="width:14%">الهاتف</th>
+            <th>الموضوع</th>
+            <th style="width:12%">أضافه</th>
+            <th style="width:16%">الوقت</th>
+        </tr></thead>
+        <tbody></tbody>
+    </table>
+</div>

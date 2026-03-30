@@ -1,0 +1,14 @@
+<div class="card">
+    <h3>📊 إحصائية الموظفين</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;">
+        <div>
+            <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">اختر الموظف</label>
+            <select id="statEmpSelect" onchange="renderStats()"><option value="">اختر موظفاً</option></select>
+        </div>
+        <div>
+            <label style="font-size:13px;color:var(--text-dim);display:block;margin-bottom:5px;">اليوم</label>
+            <input type="date" id="statDate" onchange="renderStats()" style="color:white;">
+        </div>
+    </div>
+    <div id="statsResult"></div>
+</div>
